@@ -1,0 +1,2348 @@
+[
+  {
+    "atleta_id": 11146,
+    "apelido": "Osvaldo Duarte",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10720,
+    "apelido": "Matheus Duarte",
+    "posicao_id": 1,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11730,
+    "apelido": "Anderson Tavares",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11394,
+    "apelido": "Norberto Lacerda",
+    "posicao_id": 4,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10893,
+    "apelido": "Douglas Jardim",
+    "posicao_id": 2,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10042,
+    "apelido": "Ubirajara Gomes",
+    "posicao_id": 2,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10568,
+    "apelido": "Felipe Nogueira",
+    "posicao_id": 4,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10334,
+    "apelido": "Diego Gomes",
+    "posicao_id": 1,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10456,
+    "apelido": "Fabrício Esteves",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10233,
+    "apelido": "Bento Iglesias",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11658,
+    "apelido": "Rafael Jardim",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11082,
+    "apelido": "Samuel Bittencourt",
+    "posicao_id": 2,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10912,
+    "apelido": "Ubirajara Cardoso",
+    "posicao_id": 3,
+    "clube_id": 122
+  },
+  {
+    "atleta_id": 11928,
+    "apelido": "Lucas Fontes 2",
+    "posicao_id": 5,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10196,
+    "apelido": "Ícaro Klein",
+    "posicao_id": 2,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11620,
+    "apelido": "Matheus Queiroz",
+    "posicao_id": 5,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 11507,
+    "apelido": "Sérgio Werneck",
+    "posicao_id": 4,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10009,
+    "apelido": "Ícaro Bittencourt",
+    "posicao_id": 3,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11157,
+    "apelido": "Breno Ramos",
+    "posicao_id": 5,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 10745,
+    "apelido": "Geraldo Queiroz",
+    "posicao_id": 5,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11292,
+    "apelido": "Rafael Ramos",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11194,
+    "apelido": "Samuel Henriques",
+    "posicao_id": 5,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11492,
+    "apelido": "Douglas Zanetti",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 10979,
+    "apelido": "Gustavo Klein",
+    "posicao_id": 1,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11240,
+    "apelido": "Danilo Ramos",
+    "posicao_id": 3,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10563,
+    "apelido": "Hugo Zanetti",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11277,
+    "apelido": "Cauã Yamamoto",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 11008,
+    "apelido": "Cléber Gomes",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11160,
+    "apelido": "Ubirajara Oliveira",
+    "posicao_id": 1,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11343,
+    "apelido": "Zeca Nogueira",
+    "posicao_id": 1,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11487,
+    "apelido": "Heitor Queiroz",
+    "posicao_id": 4,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10095,
+    "apelido": "Heitor Duarte",
+    "posicao_id": 2,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11590,
+    "apelido": "Renan Tavares",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10956,
+    "apelido": "Douglas Vasques",
+    "posicao_id": 3,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11544,
+    "apelido": "Geraldo Duarte",
+    "posicao_id": 5,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11189,
+    "apelido": "Sérgio Vasques",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10171,
+    "apelido": "Théo Gomes",
+    "posicao_id": 4,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10282,
+    "apelido": "Anderson Bittencourt",
+    "posicao_id": 2,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 10482,
+    "apelido": "Alan Tavares",
+    "posicao_id": 2,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10642,
+    "apelido": "Caio Yamamoto",
+    "posicao_id": 5,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 10231,
+    "apelido": "Renan Oliveira",
+    "posicao_id": 2,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 10901,
+    "apelido": "Danilo Ferreira",
+    "posicao_id": 4,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 10343,
+    "apelido": "Lucas Cardoso",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 11896,
+    "apelido": "Otávio Guimarães 2",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11444,
+    "apelido": "Bento Nogueira",
+    "posicao_id": 2,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 11770,
+    "apelido": "Murilo Escobar",
+    "posicao_id": 3,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10159,
+    "apelido": "Kaique Antunes",
+    "posicao_id": 4,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 10913,
+    "apelido": "Rafael Duarte",
+    "posicao_id": 4,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10418,
+    "apelido": "Ubirajara Escobar",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11789,
+    "apelido": "Emerson Antunes",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11130,
+    "apelido": "Cauã Bittencourt",
+    "posicao_id": 2,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10598,
+    "apelido": "Norberto Siqueira",
+    "posicao_id": 4,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10374,
+    "apelido": "Hugo Escobar",
+    "posicao_id": 1,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11763,
+    "apelido": "Pedro Werneck",
+    "posicao_id": 4,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10323,
+    "apelido": "Nícolas Cardoso",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10002,
+    "apelido": "Diego Vasques",
+    "posicao_id": 6,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 12033,
+    "apelido": "Renan Oliveira 2",
+    "posicao_id": 2,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 11809,
+    "apelido": "Caio Esteves 2",
+    "posicao_id": 4,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11056,
+    "apelido": "Gustavo Zanetti",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10894,
+    "apelido": "Wesley Peixoto",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11039,
+    "apelido": "Yuri Aguiar",
+    "posicao_id": 5,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10090,
+    "apelido": "Ubirajara Carvalho",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10664,
+    "apelido": "Wesley Zanetti",
+    "posicao_id": 2,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10107,
+    "apelido": "Rafael Ferreira",
+    "posicao_id": 4,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10227,
+    "apelido": "Samuel Queiroz",
+    "posicao_id": 4,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 11693,
+    "apelido": "Emerson Henriques",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11863,
+    "apelido": "Diego Werneck 2",
+    "posicao_id": 5,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11141,
+    "apelido": "Geraldo Tavares",
+    "posicao_id": 4,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 11488,
+    "apelido": "Théo Duarte",
+    "posicao_id": 4,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 11997,
+    "apelido": "Felipe Tavares 2",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11505,
+    "apelido": "Cauã Oliveira",
+    "posicao_id": 2,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11652,
+    "apelido": "Bento Xerez",
+    "posicao_id": 5,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11192,
+    "apelido": "Ivan Guimarães",
+    "posicao_id": 3,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 10675,
+    "apelido": "Juliano Nogueira",
+    "posicao_id": 3,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 11533,
+    "apelido": "Norberto Oliveira",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10446,
+    "apelido": "Ulisses Ferreira",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11957,
+    "apelido": "Diego Hollanda 2",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 12052,
+    "apelido": "Vinícius Dantas 2",
+    "posicao_id": 5,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10320,
+    "apelido": "Adriel Dantas",
+    "posicao_id": 3,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10103,
+    "apelido": "Heitor Ubaldo",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10499,
+    "apelido": "Leandro Ramos",
+    "posicao_id": 2,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10663,
+    "apelido": "Hugo Aguiar",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10377,
+    "apelido": "Vinícius Fontes",
+    "posicao_id": 1,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11077,
+    "apelido": "Cléber Guimarães",
+    "posicao_id": 1,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 11099,
+    "apelido": "Samuel Gomes",
+    "posicao_id": 2,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 10870,
+    "apelido": "Pedro Queiroz",
+    "posicao_id": 5,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10472,
+    "apelido": "Wesley Vasques",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10280,
+    "apelido": "Yago Machado",
+    "posicao_id": 4,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11636,
+    "apelido": "Rafael Yamamoto",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 12104,
+    "apelido": "Rafael Tavares 2",
+    "posicao_id": 5,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10363,
+    "apelido": "Felipe Oliveira",
+    "posicao_id": 5,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10626,
+    "apelido": "Valter Gomes",
+    "posicao_id": 1,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 10450,
+    "apelido": "Renan Ramos",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10503,
+    "apelido": "Breno Jardim",
+    "posicao_id": 4,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 10424,
+    "apelido": "Kléber Aguiar",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11385,
+    "apelido": "Caio Werneck",
+    "posicao_id": 4,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10736,
+    "apelido": "Rafael Cardoso",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11252,
+    "apelido": "Fabrício Hollanda",
+    "posicao_id": 4,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 11102,
+    "apelido": "Fabrício Ramos",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 12109,
+    "apelido": "Norberto Nogueira 2",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11859,
+    "apelido": "Zeca Antunes 2",
+    "posicao_id": 1,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11219,
+    "apelido": "Kléber Klein",
+    "posicao_id": 3,
+    "clube_id": 122
+  },
+  {
+    "atleta_id": 10129,
+    "apelido": "Brandão Barbosa",
+    "posicao_id": 4,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 11788,
+    "apelido": "Otávio Queiroz",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10880,
+    "apelido": "Ivan Bittencourt",
+    "posicao_id": 1,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 11144,
+    "apelido": "Xavier Tavares",
+    "posicao_id": 4,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11962,
+    "apelido": "Osvaldo Esteves 2",
+    "posicao_id": 1,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11171,
+    "apelido": "Tiago Xerez",
+    "posicao_id": 3,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10833,
+    "apelido": "Ulisses Barbosa",
+    "posicao_id": 5,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11293,
+    "apelido": "Juliano Jardim",
+    "posicao_id": 1,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10137,
+    "apelido": "Heitor Hollanda",
+    "posicao_id": 4,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11740,
+    "apelido": "Anderson Peixoto",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10677,
+    "apelido": "Breno Queiroz",
+    "posicao_id": 4,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10102,
+    "apelido": "Cléber Bittencourt",
+    "posicao_id": 4,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10820,
+    "apelido": "Quintino Escobar",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10996,
+    "apelido": "Samuel Lacerda",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11085,
+    "apelido": "Juliano Zanetti",
+    "posicao_id": 5,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11501,
+    "apelido": "Renan Gomes",
+    "posicao_id": 1,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10366,
+    "apelido": "Ivan Antunes",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11186,
+    "apelido": "Rafael Bittencourt",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10067,
+    "apelido": "Juliano Tavares",
+    "posicao_id": 3,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10800,
+    "apelido": "Théo Vasques",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10401,
+    "apelido": "Norberto Dantas",
+    "posicao_id": 1,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11794,
+    "apelido": "Joaquim Antunes",
+    "posicao_id": 5,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10957,
+    "apelido": "Renan Yamamoto",
+    "posicao_id": 2,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10397,
+    "apelido": "Heitor Vasques",
+    "posicao_id": 5,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 11433,
+    "apelido": "Bento Lacerda",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11711,
+    "apelido": "Matheus Nogueira",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11968,
+    "apelido": "Hugo Bittencourt 2",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 11104,
+    "apelido": "Théo Bittencourt",
+    "posicao_id": 1,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10143,
+    "apelido": "Emerson Iglesias",
+    "posicao_id": 5,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10033,
+    "apelido": "Yago Ubaldo",
+    "posicao_id": 4,
+    "clube_id": 122
+  },
+  {
+    "atleta_id": 10904,
+    "apelido": "Zeca Zanetti",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11123,
+    "apelido": "Leandro Barbosa",
+    "posicao_id": 4,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10606,
+    "apelido": "Emerson Escobar",
+    "posicao_id": 5,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 12083,
+    "apelido": "Ubirajara Esteves 2",
+    "posicao_id": 2,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 12029,
+    "apelido": "Samuel Queiroz 2",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11139,
+    "apelido": "Juliano Dantas",
+    "posicao_id": 4,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11295,
+    "apelido": "Heitor Lacerda",
+    "posicao_id": 6,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10135,
+    "apelido": "Adriel Carvalho",
+    "posicao_id": 5,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 10977,
+    "apelido": "Quintino Ramos",
+    "posicao_id": 5,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 11291,
+    "apelido": "Juliano Antunes",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10305,
+    "apelido": "Cauã Cardoso",
+    "posicao_id": 4,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10749,
+    "apelido": "Pedro Zanetti",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10867,
+    "apelido": "Osvaldo Machado",
+    "posicao_id": 2,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10620,
+    "apelido": "Zeca Bittencourt",
+    "posicao_id": 2,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11256,
+    "apelido": "Tiago Esteves",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10970,
+    "apelido": "Quintino Zanetti",
+    "posicao_id": 4,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10180,
+    "apelido": "Otávio Klein",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10597,
+    "apelido": "Zico Queiroz",
+    "posicao_id": 3,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10462,
+    "apelido": "Kaique Aguiar",
+    "posicao_id": 4,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 10419,
+    "apelido": "Kléber Barbosa",
+    "posicao_id": 1,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10632,
+    "apelido": "Emerson Nogueira",
+    "posicao_id": 1,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10699,
+    "apelido": "Juliano Oliveira",
+    "posicao_id": 2,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 10616,
+    "apelido": "Matheus Gomes",
+    "posicao_id": 5,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 11027,
+    "apelido": "Bento Hollanda",
+    "posicao_id": 5,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10801,
+    "apelido": "Caio Barbosa",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11110,
+    "apelido": "Gustavo Antunes",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10211,
+    "apelido": "Breno Siqueira",
+    "posicao_id": 4,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 11313,
+    "apelido": "Caio Henriques",
+    "posicao_id": 3,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10713,
+    "apelido": "Cauã Tavares",
+    "posicao_id": 2,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11708,
+    "apelido": "Zico Ramos",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10872,
+    "apelido": "Kléber Ubaldo",
+    "posicao_id": 5,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 11426,
+    "apelido": "Nícolas Tavares",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10278,
+    "apelido": "Ícaro Ramos",
+    "posicao_id": 5,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 11772,
+    "apelido": "Ulisses Gomes",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11659,
+    "apelido": "Elias Queiroz",
+    "posicao_id": 3,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10439,
+    "apelido": "Diego Esteves",
+    "posicao_id": 3,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10427,
+    "apelido": "Ícaro Aguiar",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10709,
+    "apelido": "Anderson Ubaldo",
+    "posicao_id": 5,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11685,
+    "apelido": "Yago Ramos",
+    "posicao_id": 4,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10074,
+    "apelido": "Danilo Escobar",
+    "posicao_id": 5,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10591,
+    "apelido": "Xavier Klein",
+    "posicao_id": 6,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11195,
+    "apelido": "Pedro Iglesias",
+    "posicao_id": 3,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11541,
+    "apelido": "Caio Gomes",
+    "posicao_id": 1,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10113,
+    "apelido": "Quintino Gomes",
+    "posicao_id": 2,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10903,
+    "apelido": "Ubirajara Tavares",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 12037,
+    "apelido": "Kléber Nogueira 2",
+    "posicao_id": 5,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 10218,
+    "apelido": "Norberto Guimarães",
+    "posicao_id": 5,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11409,
+    "apelido": "Bento Ferreira",
+    "posicao_id": 5,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10212,
+    "apelido": "Samuel Oliveira",
+    "posicao_id": 1,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10832,
+    "apelido": "Brandão Iglesias",
+    "posicao_id": 5,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 10860,
+    "apelido": "Adriel Escobar",
+    "posicao_id": 2,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11410,
+    "apelido": "Danilo Aguiar",
+    "posicao_id": 3,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10760,
+    "apelido": "Joaquim Hollanda",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11247,
+    "apelido": "Vinícius Iglesias",
+    "posicao_id": 3,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10691,
+    "apelido": "Yago Ferreira",
+    "posicao_id": 3,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11725,
+    "apelido": "Xavier Jardim",
+    "posicao_id": 5,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11550,
+    "apelido": "Nícolas Dantas",
+    "posicao_id": 5,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10172,
+    "apelido": "Ivan Cardoso",
+    "posicao_id": 3,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 10288,
+    "apelido": "Yago Dantas",
+    "posicao_id": 1,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10449,
+    "apelido": "Adriel Henriques",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11364,
+    "apelido": "Matheus Dantas",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11716,
+    "apelido": "Elias Peixoto",
+    "posicao_id": 2,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10810,
+    "apelido": "Emerson Zanetti",
+    "posicao_id": 4,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 11024,
+    "apelido": "Felipe Ferreira",
+    "posicao_id": 5,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10163,
+    "apelido": "Quintino Klein",
+    "posicao_id": 3,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11446,
+    "apelido": "Bento Guimarães",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10465,
+    "apelido": "Matheus Aguiar",
+    "posicao_id": 3,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11728,
+    "apelido": "Osvaldo Henriques",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10144,
+    "apelido": "Théo Lacerda",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11117,
+    "apelido": "Sérgio Ubaldo",
+    "posicao_id": 1,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10855,
+    "apelido": "Leandro Antunes",
+    "posicao_id": 4,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11489,
+    "apelido": "Cléber Escobar",
+    "posicao_id": 5,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 11818,
+    "apelido": "Joaquim Bittencourt 2",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11547,
+    "apelido": "Cauã Barbosa",
+    "posicao_id": 1,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11479,
+    "apelido": "Pedro Ferreira",
+    "posicao_id": 5,
+    "clube_id": 122
+  },
+  {
+    "atleta_id": 11392,
+    "apelido": "Quintino Dantas",
+    "posicao_id": 5,
+    "clube_id": 122
+  },
+  {
+    "atleta_id": 10297,
+    "apelido": "Douglas Guimarães",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10307,
+    "apelido": "Norberto Nogueira",
+    "posicao_id": 4,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10548,
+    "apelido": "Vinícius Gomes",
+    "posicao_id": 1,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10355,
+    "apelido": "Osvaldo Peixoto",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10425,
+    "apelido": "Zico Guimarães",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10230,
+    "apelido": "Sérgio Zanetti",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 11342,
+    "apelido": "Bento Jardim",
+    "posicao_id": 1,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11674,
+    "apelido": "Diego Carvalho",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11867,
+    "apelido": "Danilo Zanetti 2",
+    "posicao_id": 5,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 11014,
+    "apelido": "Bento Peixoto",
+    "posicao_id": 3,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 10784,
+    "apelido": "Felipe Yamamoto",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11750,
+    "apelido": "Wagner Oliveira",
+    "posicao_id": 2,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 12040,
+    "apelido": "Otávio Fontes 2",
+    "posicao_id": 4,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10986,
+    "apelido": "Heitor Zanetti",
+    "posicao_id": 5,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11963,
+    "apelido": "Hugo Ferreira 2",
+    "posicao_id": 1,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 11349,
+    "apelido": "Yuri Hollanda",
+    "posicao_id": 4,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11266,
+    "apelido": "Yago Cardoso",
+    "posicao_id": 2,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 11362,
+    "apelido": "Quintino Oliveira",
+    "posicao_id": 5,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11844,
+    "apelido": "Ubirajara Gomes 2",
+    "posicao_id": 2,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10808,
+    "apelido": "Rafael Werneck",
+    "posicao_id": 5,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10256,
+    "apelido": "Hugo Jardim",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10174,
+    "apelido": "Murilo Werneck",
+    "posicao_id": 5,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10997,
+    "apelido": "Kléber Siqueira",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10844,
+    "apelido": "Adriel Yamamoto",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10752,
+    "apelido": "Hugo Peixoto",
+    "posicao_id": 5,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10228,
+    "apelido": "Renan Hollanda",
+    "posicao_id": 3,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11113,
+    "apelido": "Ulisses Lacerda",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10098,
+    "apelido": "Renan Xerez",
+    "posicao_id": 2,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10538,
+    "apelido": "Cauã Iglesias",
+    "posicao_id": 1,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10613,
+    "apelido": "Renan Fontes",
+    "posicao_id": 4,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 10289,
+    "apelido": "Felipe Fontes",
+    "posicao_id": 3,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11416,
+    "apelido": "Danilo Antunes",
+    "posicao_id": 4,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 10841,
+    "apelido": "Renan Klein",
+    "posicao_id": 1,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10605,
+    "apelido": "Nícolas Ubaldo",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10721,
+    "apelido": "Elias Esteves",
+    "posicao_id": 3,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10722,
+    "apelido": "Norberto Antunes",
+    "posicao_id": 3,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11067,
+    "apelido": "Ícaro Gomes",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11226,
+    "apelido": "Vinícius Barbosa",
+    "posicao_id": 2,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10951,
+    "apelido": "Sérgio Duarte",
+    "posicao_id": 4,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10856,
+    "apelido": "Douglas Nogueira",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10588,
+    "apelido": "Yuri Cardoso",
+    "posicao_id": 5,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10725,
+    "apelido": "Breno Escobar",
+    "posicao_id": 3,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11268,
+    "apelido": "Kaique Nogueira",
+    "posicao_id": 6,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10304,
+    "apelido": "Ícaro Nogueira",
+    "posicao_id": 1,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10754,
+    "apelido": "Hugo Vasques",
+    "posicao_id": 2,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11803,
+    "apelido": "Elias Ramos 2",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11707,
+    "apelido": "Juliano Guimarães",
+    "posicao_id": 5,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11271,
+    "apelido": "Ulisses Antunes",
+    "posicao_id": 4,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11516,
+    "apelido": "Kléber Peixoto",
+    "posicao_id": 5,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 11864,
+    "apelido": "Leandro Klein 2",
+    "posicao_id": 2,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 11729,
+    "apelido": "Juliano Yamamoto",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11217,
+    "apelido": "Joaquim Jardim",
+    "posicao_id": 5,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 10574,
+    "apelido": "Xavier Ubaldo",
+    "posicao_id": 3,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10202,
+    "apelido": "Breno Esteves",
+    "posicao_id": 4,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 11163,
+    "apelido": "Gustavo Henriques",
+    "posicao_id": 4,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10447,
+    "apelido": "Théo Oliveira",
+    "posicao_id": 2,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11323,
+    "apelido": "Elias Fontes",
+    "posicao_id": 2,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10570,
+    "apelido": "Heitor Cardoso",
+    "posicao_id": 2,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10335,
+    "apelido": "Ícaro Esteves",
+    "posicao_id": 5,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10508,
+    "apelido": "Douglas Fontes",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10581,
+    "apelido": "Juliano Escobar",
+    "posicao_id": 3,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 10652,
+    "apelido": "Tiago Iglesias",
+    "posicao_id": 1,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11538,
+    "apelido": "Caio Machado",
+    "posicao_id": 3,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10200,
+    "apelido": "Yago Vasques",
+    "posicao_id": 5,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10670,
+    "apelido": "Felipe Siqueira",
+    "posicao_id": 4,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10729,
+    "apelido": "Cléber Iglesias",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10522,
+    "apelido": "Vinícius Esteves",
+    "posicao_id": 2,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11054,
+    "apelido": "Kaique Guimarães",
+    "posicao_id": 3,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10791,
+    "apelido": "Joaquim Barbosa",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10573,
+    "apelido": "Wagner Antunes",
+    "posicao_id": 4,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11491,
+    "apelido": "Ivan Xerez",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11269,
+    "apelido": "Osvaldo Oliveira",
+    "posicao_id": 2,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 11361,
+    "apelido": "Lucas Peixoto",
+    "posicao_id": 5,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10479,
+    "apelido": "Adriel Ubaldo",
+    "posicao_id": 2,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11249,
+    "apelido": "Wesley Aguiar",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10206,
+    "apelido": "Norberto Duarte",
+    "posicao_id": 3,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10863,
+    "apelido": "Nícolas Vasques",
+    "posicao_id": 2,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10571,
+    "apelido": "Nícolas Duarte",
+    "posicao_id": 3,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10651,
+    "apelido": "Murilo Nogueira",
+    "posicao_id": 2,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 11838,
+    "apelido": "Nícolas Oliveira 2",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10994,
+    "apelido": "Brandão Vasques",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 10937,
+    "apelido": "Kaique Fontes",
+    "posicao_id": 1,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10250,
+    "apelido": "Vinícius Dantas",
+    "posicao_id": 3,
+    "clube_id": 117
+  },
+  {
+    "atleta_id": 10432,
+    "apelido": "Cléber Hollanda",
+    "posicao_id": 4,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11782,
+    "apelido": "Fabrício Vasques",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10391,
+    "apelido": "Anderson Siqueira",
+    "posicao_id": 1,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11007,
+    "apelido": "Renan Cardoso",
+    "posicao_id": 2,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10640,
+    "apelido": "Osvaldo Ferreira",
+    "posicao_id": 4,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 12003,
+    "apelido": "Danilo Queiroz 2",
+    "posicao_id": 4,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10835,
+    "apelido": "Joaquim Gomes",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10624,
+    "apelido": "Felipe Guimarães",
+    "posicao_id": 4,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 10114,
+    "apelido": "Wesley Esteves",
+    "posicao_id": 4,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11875,
+    "apelido": "Ubirajara Zanetti 2",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11917,
+    "apelido": "Wesley Gomes 2",
+    "posicao_id": 5,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10678,
+    "apelido": "Osvaldo Ramos",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10853,
+    "apelido": "Brandão Antunes",
+    "posicao_id": 2,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 10273,
+    "apelido": "Yago Bittencourt",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10731,
+    "apelido": "Adriel Peixoto",
+    "posicao_id": 4,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10142,
+    "apelido": "Hugo Antunes",
+    "posicao_id": 5,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10191,
+    "apelido": "Emerson Aguiar",
+    "posicao_id": 1,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10277,
+    "apelido": "Kléber Henriques",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10286,
+    "apelido": "Heitor Nogueira",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10442,
+    "apelido": "Felipe Aguiar",
+    "posicao_id": 4,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11302,
+    "apelido": "Ivan Werneck",
+    "posicao_id": 5,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10197,
+    "apelido": "Zeca Dantas",
+    "posicao_id": 4,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10932,
+    "apelido": "Ivan Barbosa",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10367,
+    "apelido": "Caio Bittencourt",
+    "posicao_id": 5,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11368,
+    "apelido": "Brandão Lacerda",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10658,
+    "apelido": "Quintino Guimarães",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10914,
+    "apelido": "Adriel Jardim",
+    "posicao_id": 2,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 10126,
+    "apelido": "Lucas Fontes",
+    "posicao_id": 1,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11286,
+    "apelido": "Ícaro Cardoso",
+    "posicao_id": 1,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11460,
+    "apelido": "Vinícius Ramos",
+    "posicao_id": 5,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 10125,
+    "apelido": "Murilo Barbosa",
+    "posicao_id": 1,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11817,
+    "apelido": "Yago Aguiar 2",
+    "posicao_id": 4,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11756,
+    "apelido": "Osvaldo Escobar",
+    "posicao_id": 5,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10747,
+    "apelido": "Zico Nogueira",
+    "posicao_id": 1,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10146,
+    "apelido": "Leandro Zanetti",
+    "posicao_id": 3,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10022,
+    "apelido": "Zico Oliveira",
+    "posicao_id": 2,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10127,
+    "apelido": "Ulisses Cardoso",
+    "posicao_id": 3,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 11012,
+    "apelido": "Osvaldo Hollanda",
+    "posicao_id": 3,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10543,
+    "apelido": "Sérgio Yamamoto",
+    "posicao_id": 3,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10602,
+    "apelido": "Norberto Henriques",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 10489,
+    "apelido": "Diego Lacerda",
+    "posicao_id": 4,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 11503,
+    "apelido": "Ivan Yamamoto",
+    "posicao_id": 1,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11553,
+    "apelido": "Heitor Gomes",
+    "posicao_id": 5,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11348,
+    "apelido": "Gustavo Barbosa",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11747,
+    "apelido": "Fabrício Ferreira",
+    "posicao_id": 2,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10802,
+    "apelido": "Quintino Vasques",
+    "posicao_id": 4,
+    "clube_id": 119
+  },
+  {
+    "atleta_id": 11665,
+    "apelido": "Samuel Jardim",
+    "posicao_id": 4,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 10470,
+    "apelido": "Pedro Peixoto",
+    "posicao_id": 3,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 12055,
+    "apelido": "Zeca Klein 2",
+    "posicao_id": 5,
+    "clube_id": 109
+  },
+  {
+    "atleta_id": 11183,
+    "apelido": "Ulisses Peixoto",
+    "posicao_id": 4,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 11805,
+    "apelido": "Renan Guimarães 2",
+    "posicao_id": 4,
+    "clube_id": 120
+  },
+  {
+    "atleta_id": 11044,
+    "apelido": "Anderson Antunes",
+    "posicao_id": 5,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11453,
+    "apelido": "Bento Duarte",
+    "posicao_id": 1,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11569,
+    "apelido": "Leandro Lacerda",
+    "posicao_id": 6,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10785,
+    "apelido": "Zico Machado",
+    "posicao_id": 1,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 11566,
+    "apelido": "Matheus Oliveira",
+    "posicao_id": 5,
+    "clube_id": 118
+  },
+  {
+    "atleta_id": 11075,
+    "apelido": "Anderson Hollanda",
+    "posicao_id": 3,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10741,
+    "apelido": "Breno Ferreira",
+    "posicao_id": 3,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 10333,
+    "apelido": "Emerson Guimarães",
+    "posicao_id": 4,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11000,
+    "apelido": "Leandro Carvalho",
+    "posicao_id": 3,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 11030,
+    "apelido": "Yago Oliveira",
+    "posicao_id": 4,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10078,
+    "apelido": "Douglas Iglesias",
+    "posicao_id": 4,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10952,
+    "apelido": "Vinícius Werneck",
+    "posicao_id": 1,
+    "clube_id": 102
+  },
+  {
+    "atleta_id": 11040,
+    "apelido": "Leandro Fontes",
+    "posicao_id": 3,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10344,
+    "apelido": "Matheus Cardoso",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 10267,
+    "apelido": "Wagner Iglesias",
+    "posicao_id": 5,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 11381,
+    "apelido": "Norberto Queiroz",
+    "posicao_id": 4,
+    "clube_id": 113
+  },
+  {
+    "atleta_id": 10772,
+    "apelido": "Quintino Jardim",
+    "posicao_id": 4,
+    "clube_id": 126
+  },
+  {
+    "atleta_id": 11671,
+    "apelido": "Vinícius Peixoto",
+    "posicao_id": 4,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11920,
+    "apelido": "Hugo Klein 2",
+    "posicao_id": 6,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11442,
+    "apelido": "Sérgio Fontes",
+    "posicao_id": 5,
+    "clube_id": 107
+  },
+  {
+    "atleta_id": 11979,
+    "apelido": "Wagner Cardoso 2",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 10776,
+    "apelido": "Théo Werneck",
+    "posicao_id": 4,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10477,
+    "apelido": "Ubirajara Yamamoto",
+    "posicao_id": 3,
+    "clube_id": 111
+  },
+  {
+    "atleta_id": 10044,
+    "apelido": "Gustavo Guimarães",
+    "posicao_id": 1,
+    "clube_id": 112
+  },
+  {
+    "atleta_id": 10150,
+    "apelido": "Samuel Antunes",
+    "posicao_id": 4,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10779,
+    "apelido": "Douglas Ubaldo",
+    "posicao_id": 6,
+    "clube_id": 105
+  },
+  {
+    "atleta_id": 11042,
+    "apelido": "Tiago Queiroz",
+    "posicao_id": 4,
+    "clube_id": 124
+  },
+  {
+    "atleta_id": 10184,
+    "apelido": "Murilo Iglesias",
+    "posicao_id": 4,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 10837,
+    "apelido": "Brandão Henriques",
+    "posicao_id": 3,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 12058,
+    "apelido": "Hugo Jardim 2",
+    "posicao_id": 1,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 10895,
+    "apelido": "Xavier Zanetti",
+    "posicao_id": 4,
+    "clube_id": 116
+  },
+  {
+    "atleta_id": 10105,
+    "apelido": "Kléber Tavares",
+    "posicao_id": 5,
+    "clube_id": 127
+  },
+  {
+    "atleta_id": 10055,
+    "apelido": "Norberto Zanetti",
+    "posicao_id": 3,
+    "clube_id": 125
+  },
+  {
+    "atleta_id": 11640,
+    "apelido": "Geraldo Nogueira",
+    "posicao_id": 1,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11773,
+    "apelido": "Diego Yamamoto",
+    "posicao_id": 6,
+    "clube_id": 121
+  },
+  {
+    "atleta_id": 11463,
+    "apelido": "Breno Henriques",
+    "posicao_id": 3,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 10474,
+    "apelido": "Brandão Oliveira",
+    "posicao_id": 1,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10621,
+    "apelido": "Tiago Aguiar",
+    "posicao_id": 2,
+    "clube_id": 106
+  },
+  {
+    "atleta_id": 11380,
+    "apelido": "Zico Carvalho",
+    "posicao_id": 3,
+    "clube_id": 108
+  },
+  {
+    "atleta_id": 11135,
+    "apelido": "Yuri Xerez",
+    "posicao_id": 4,
+    "clube_id": 128
+  },
+  {
+    "atleta_id": 11065,
+    "apelido": "Breno Hollanda",
+    "posicao_id": 1,
+    "clube_id": 110
+  },
+  {
+    "atleta_id": 10037,
+    "apelido": "Rafael Oliveira",
+    "posicao_id": 6,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 12063,
+    "apelido": "Caio Klein 2",
+    "posicao_id": 4,
+    "clube_id": 101
+  },
+  {
+    "atleta_id": 10414,
+    "apelido": "Emerson Oliveira",
+    "posicao_id": 4,
+    "clube_id": 123
+  },
+  {
+    "atleta_id": 10064,
+    "apelido": "Gustavo Oliveira",
+    "posicao_id": 4,
+    "clube_id": 104
+  },
+  {
+    "atleta_id": 11181,
+    "apelido": "Heitor Ferreira",
+    "posicao_id": 2,
+    "clube_id": 103
+  },
+  {
+    "atleta_id": 11218,
+    "apelido": "Geraldo Machado",
+    "posicao_id": 5,
+    "clube_id": 115
+  },
+  {
+    "atleta_id": 11325,
+    "apelido": "Heitor Oliveira",
+    "posicao_id": 3,
+    "clube_id": 114
+  },
+  {
+    "atleta_id": 10281,
+    "apelido": "Ubirajara Esteves",
+    "posicao_id": 4,
+    "clube_id": 112
+  }
+]

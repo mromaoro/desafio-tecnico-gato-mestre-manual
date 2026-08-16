@@ -4,7 +4,9 @@ Quando eu recebi o teste, na sexta-feira, dia 14/08, eu li com atenção a descr
 
 A primeira coisa que veio na cabeça é como fazer o teste, uma vez que boa parte da minha experiência em modelagem veio da área de Fraude e agora eu teria que prever dados de atleta para o cartola, que é um assunto que eu nunca tinha tido contato. 
 
-A primeira coisa que fiz foi uma busca para entender como nasceu a ideia de prever performance de jogadores, quem já tinha feito isso, quais teses e dissertaçòes existiam sobre o assunto, até que cheguei em alguns nomes que me ajudaram a entender o cenário de forma macro. Foi essas referencias que eu utilizei no Gemini LM para me apoiar e entender com as mentes que já fizeram isso antes.
+a primeira coisa que fiz foi download do cartola e entender como funcionava.
+
+A segundo coisa que fiz foi uma busca para entender como nasceu a ideia de prever performance de jogadores, quem já tinha feito isso, quais teses e dissertaçòes existiam sobre o assunto, até que cheguei em alguns nomes que me ajudaram a entender o cenário de forma macro. Foi essas referencias que eu utilizei no Gemini LM para me apoiar e entender com as mentes que já fizeram isso antes.
 
 ### Tabela de Referências
 
@@ -51,4 +53,24 @@ Aprovação Prévia: Se eu pedir para você estruturar uma função complexa, pr
 Foco em Trade-offs: Quando eu fizer uma pergunta técnica, não me dê a resposta final. Forneça opções e trade-offs matemáticos ou de engenharia para que eu tome a decisão.)
 
 Inicie o desenvolvimento do desafio. A partir de agora, vou documentando aqui as grandes questões que fui tendo e como foi o avanço.
+
+---
+
+### Diagnóstico Exploratório e Decisões de Modelagem (Notebook 01)
+
+Durante a primeira etapa de obtenção e diagnóstico da base bruta (`base_case_gm.csv`), identifiquei alguns pontos críticos que direcionam tanto a limpeza quanto a estratégia de modelagem:
+
+1. **Inconsistência de Cardinalidade em `posicao_id`**:
+   - A documentação oficial lista 6 posições (1 a 6). No entanto, a base bruta contém 9 valores distintos (aparecem `0, 7, 9` em 466 linhas, cerca de 0,4% da base).
+   - *Decisão*: Não descartar de imediato sem verificar a API de apoio (`GET /atletas/{atleta_id}`), que permite recuperar a posição cadastral correta ou fazer a imputação pela moda histórica do jogador.
+
+2. **Padrões de Dados Faltantes (Nulos)**:
+   - **Coluna `DD` (Defesa Difícil)**: Está 100% nula. No Cartola FC, o scout de goleiro foi unificado em regras recentes, substituindo "Defesa Difícil" (`DD`) por contagem geral de "Defesas" (`DE`). Modelos de árvore (LightGBM/XGBoost) ignoram variância zero, mas descartar a coluna economiza memória; para modelos lineares, remover é obrigatório para evitar singularidade de matriz ($X^T X$).
+   - **Contexto (`home_dummy` e `opponent` com ~12% nulos)**: Como o `match_id` está preservado em todas as linhas, é possível enriquecer e recuperar 100% desses dados consultando a API de apoio (`GET /jogos/{match_id}`).
+   - **Preço (`preco_num` com 20 nulos e tipo texto)**: Cast para numérico e imputação pela rodada anterior ($t-1$) ou mediana da posição.
+
+3. **Prevenção Estrita a Data Leakage (A Regra de Ouro da Modelagem)**:
+   - Toda variável apurada durante ou após os 90 minutos do jogo (`pontos_num`, `minutos_jogados`, `entrou_em_campo`, `status_inicial`, `variacao_num` e todos os scouts `G, A, SG, DS, ...`) **não pode entrar como feature direta no instante $t$**.
+   - *Estratégia de Engenharia de Variáveis*: Criar features retroativas (janelas temporais móveis dos últimos 3 e 5 jogos, médias ponderadas por minutos e taxas de scouts por 90 minutos) para capturar a fase recente do atleta sem incorrer em vazamento temporal.
+
 
