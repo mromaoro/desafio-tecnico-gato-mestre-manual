@@ -27,6 +27,8 @@ wheels/
 # Jupyter Notebook
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+catboost_info/
+*/catboost_info/*
 
 # Environment variables
 .env
