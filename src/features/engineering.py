@@ -23,7 +23,7 @@ def gerar_features(
         api_jogos_detalhes (list): Lista com súmulas oficiais e escalações de todas as partidas.
 
     Returns:
-        pd.DataFrame: Matriz enriquecida pronta para modelagem (115.613 linhas x 59 colunas, 0 nulos).
+        pd.DataFrame: Matriz enriquecida pronta para modelagem (115.613 linhas x 61 colunas, 0 nulos).
     """
     df = df_limpo.copy()
 
@@ -56,7 +56,7 @@ def gerar_features(
     )
 
     # -------------------------------------------------------------------------
-    # 2. Enriquecimento com api_jogos_detalhes.json (Estabilidade de Jaccard do 11 Titular)
+    # 2. Enriquecimento com api_jogos_detalhes.json (Estabilidade de Jaccard t-1 -> t-2, ZERO LEAKAGE)
     # -------------------------------------------------------------------------
     mapa_titulares_jogo = {}
     for jd in api_jogos_detalhes:
@@ -76,11 +76,12 @@ def gerar_features(
     for ano in sorted(df["ano"].unique()):
         for cid in clubes:
             for r in range(1, 39):
-                t_atual = mapa_titulares_jogo.get((ano, r, cid))
-                t_ant = mapa_titulares_jogo.get((ano, r - 1, cid))
-                if t_atual and t_ant:
-                    inter = len(t_atual.intersection(t_ant))
-                    union = len(t_atual.union(t_ant))
+                # Estabilidade estritamente pré-jogo: compara a escalação de r-1 com a de r-2
+                t_anterior = mapa_titulares_jogo.get((ano, r - 1, cid))
+                t_retrasado = mapa_titulares_jogo.get((ano, r - 2, cid))
+                if t_anterior and t_retrasado:
+                    inter = len(t_anterior.intersection(t_retrasado))
+                    union = len(t_anterior.union(t_retrasado))
                     jaccard = inter / union if union > 0 else np.nan
                 else:
                     jaccard = np.nan
@@ -143,7 +144,7 @@ def gerar_features(
         lambda x: x.shift(1).rolling(3, min_periods=1).mean()
     ).fillna(0.0)
 
-    # Pontuação recente defasada
+    # Pontuação recente defasada e média acumulada pré-jogo
     df["pontos_lag1"] = grp_atleta["pontos_num"].shift(1).fillna(0.0)
     df["media_pontos_3j"] = grp_atleta["pontos_num"].transform(
         lambda x: x.shift(1).rolling(3, min_periods=1).mean()
@@ -151,6 +152,7 @@ def gerar_features(
     df["desvio_pontos_3j"] = grp_atleta["pontos_num"].transform(
         lambda x: x.shift(1).rolling(3, min_periods=1).std()
     ).fillna(0.0)
+    df["media_acumulada_pre"] = grp_atleta["media_num"].shift(1).fillna(0.0)
 
     # Scouts de Volume defasados (DS + FS + FD + FF)
     scouts_vol = df["DS"] + df["FS"] + df["FD"] + df["FF"]
@@ -161,11 +163,55 @@ def gerar_features(
     df.drop(columns=["_vol_temp"], inplace=True)
 
     # -------------------------------------------------------------------------
-    # 5. Features de Dinâmica Econômica e Eficiência de Mercado
+    # Features Defasadas de Scouts Específicos (Sem Data Leakage)
     # -------------------------------------------------------------------------
-    preco_lag3 = grp_atleta["preco_num"].shift(3).fillna(df["preco_num"])
-    df["momentum_preco_3j"] = df["preco_num"] / (preco_lag3 + 1e-4)
-    df["roi_recente_3j"] = df["media_pontos_3j"] / (df["preco_num"] + 1e-4)
+    # 1. Desarmes puros defasados (3 jogos)
+    df["media_desarmes_3j"] = grp_atleta["DS"].transform(
+        lambda x: x.shift(1).rolling(3, min_periods=1).mean()
+    ).fillna(0.0)
+
+    # 2. Finalizações totais defasadas (FD + FF + FT em 3 jogos)
+    finalizacoes_totais = df["FD"] + df["FF"] + df["FT"]
+    df["_fin_temp"] = finalizacoes_totais
+    df["media_finalizacoes_3j"] = grp_atleta["_fin_temp"].transform(
+        lambda x: x.shift(1).rolling(3, min_periods=1).mean()
+    ).fillna(0.0)
+    df.drop(columns=["_fin_temp"], inplace=True)
+
+    # 3. Participação direta em gols nos últimos 5 jogos (G + A)
+    gols_assists = df["G"] + df["A"]
+    df["_ga_temp"] = gols_assists
+    df["taxa_participacao_gols_5j"] = grp_atleta["_ga_temp"].transform(
+        lambda x: x.shift(1).rolling(5, min_periods=1).sum()
+    ).fillna(0.0)
+    df.drop(columns=["_ga_temp"], inplace=True)
+
+    # 4. Risco Disciplinar nos últimos 5 jogos (CA*2 + FC)
+    cartoes_faltas = (df["CA"] * 2.0) + df["FC"]
+    df["_disc_temp"] = cartoes_faltas
+    df["score_risco_disciplinar_5j"] = grp_atleta["_disc_temp"].transform(
+        lambda x: x.shift(1).rolling(5, min_periods=1).mean()
+    ).fillna(0.0)
+    df.drop(columns=["_disc_temp"], inplace=True)
+
+    # 5. Defesas de Goleiro nos últimos 3 jogos (DE + DP)
+    defesas_goleiro = df["DE"] + df["DP"]
+    df["_def_temp"] = defesas_goleiro
+    df["taxa_defesas_por_jogo_3j"] = grp_atleta["_def_temp"].transform(
+        lambda x: x.shift(1).rolling(3, min_periods=1).mean()
+    ).fillna(0.0)
+    df.drop(columns=["_def_temp"], inplace=True)
+
+    # -------------------------------------------------------------------------
+    # 5. Features de Dinâmica Econômica e Eficiência de Mercado (ZERO LEAKAGE)
+    # -------------------------------------------------------------------------
+    # Preço de abertura da rodada t (preço de t-1) e lag de 3 jogos anteriores (t-4)
+    preco_abertura_t = grp_atleta["preco_num"].shift(1).fillna(df["preco_num"])
+    preco_lag3 = grp_atleta["preco_num"].shift(4).fillna(preco_abertura_t)
+
+    df["preco_mercado_pre"] = preco_abertura_t
+    df["momentum_preco_3j"] = preco_abertura_t / (preco_lag3 + 1e-4)
+    df["roi_recente_3j"] = df["media_pontos_3j"] / (preco_abertura_t + 1e-4)
 
     # -------------------------------------------------------------------------
     # 6. Features Compostas de Confronto, Alavancagem e Risco de Rotação
@@ -179,7 +225,7 @@ def gerar_features(
         df.groupby("opponent")["opponent_media_pontos_cedidos"].transform("median")
     ).fillna(45.0)
 
-    # Imputação da estabilidade tática (0.70 baseline para R1)
+    # Imputação da estabilidade tática (0.70 baseline para R1 e R2)
     df["estabilidade_11_titular_clube"] = df["estabilidade_11_titular"].fillna(0.70)
 
     # Fator de Alavancagem e Potencial Esperado do Atleta
@@ -206,11 +252,36 @@ def gerar_features(
         1.0 - df["taxa_participacao_3j"]
     )
 
+    # -------------------------------------------------------------------------
+    # 7. ALAVANCA 2: Features de Contexto Avançado e Interações Específicas
+    # -------------------------------------------------------------------------
+    # 1. Eficiência de Conversão Ofensiva (Gols / Finalizações nos últimos 5 jogos)
+    finalizacoes_totais = df["FD"] + df["FF"] + df["FT"]
+    df["_fin_temp"] = finalizacoes_totais
+    fin_5j = grp_atleta["_fin_temp"].transform(lambda x: x.shift(1).rolling(5, min_periods=1).sum()).fillna(0.0)
+    gols_5j = grp_atleta["G"].transform(lambda x: x.shift(1).rolling(5, min_periods=1).sum()).fillna(0.0)
+    df["taxa_conversao_gols_5j"] = (gols_5j / (fin_5j + 1.0)).fillna(0.0)
+    df.drop(columns=["_fin_temp"], inplace=True)
+
+    # 2. Diferencial de Preço em Relação à Média da Posição na Rodada
+    media_preco_pos = df.groupby(["ano", "rodada_id", "posicao_id"])["preco_mercado_pre"].transform("mean")
+    df["diff_preco_posicao_pre"] = df["preco_mercado_pre"] - media_preco_pos
+
+    # 3. Expectativa de Gols do Time (Encaixe Ataque Clube x Defesa Adversária)
+    df["expectativa_gols_time"] = (
+        df["clube_media_pontos_conquistados"] * df["opponent_media_pontos_cedidos"]
+    ) / 2500.0
+
+    # 4. Potencial de SG para Defensores (Mandante contra Ataque Pouco Produtivo)
+    df["potencial_sg_defesa"] = (
+        df["home_dummy"] * (1.0 - (df["opponent_media_pontos_cedidos"] / 60.0))
+    ).clip(lower=0.0)
+
     # Remove colunas residuais puramente exploratórias
     df.drop(columns=["estabilidade_11_titular", "variacao_lag1"], inplace=True, errors="ignore")
 
     # -------------------------------------------------------------------------
-    # 7. Asserção de Integridade e Validação
+    # 8. Asserção de Integridade e Validação
     # -------------------------------------------------------------------------
     total_nulos = int(df.isna().sum().sum())
     if total_nulos > 0:
