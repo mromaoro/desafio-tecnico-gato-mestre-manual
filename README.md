@@ -1,29 +1,97 @@
-# desafio-tecnico-gato-mestre-manual
-Desafio técnico para globo esporte no time do gato mestre
+# Gato Mestre | Desafio Técnico - Ciência de Dados
 
+Repositório da solução desenvolvida para a **Previsão de Pontuação de Atletas** do Cartola FC / Gato Mestre (Grupo Globo).
 
-estrutura do repositório
+---
 
+## 📁 Estrutura do Repositório
+
+```text
 ├── data/
-│   ├── raw/                 # base_case_gm.csv e dados brutos da API
-│   └── processed/           # tabelas tratadas / feature store local
-├── notebooks/
-│   └── modelagem.ipynb      # Análise, experimentos e respostas às perguntas
+│   ├── raw/                 # Dados brutos da base_case_gm.csv e extrações da API de apoio
+│   └── processed/           # Tabelas limpas e feature store local (.parquet e .csv)
+├── docs/
+│   └── execucao_servico.md  # Guia completo de execução e consumo da API de serving
+├── models/                  # Modelos treinados (.joblib) e preprocessors
+├── notebooks/               # Jornada metodológica e analítica completa
+│   ├── 01_obtencao_dados.ipynb
+│   ├── 02_limpeza_e_preparacao.ipynb
+│   ├── 03_eda_e_feature_engineering.ipynb
+│   ├── 04_modelagem_e_validacao.ipynb
+│   └── 05_otimizacao_hiperparametros_e_explicabilidade.ipynb
+├── presentation/            # Material de suporte para a apresentação técnica
 ├── src/
-│   ├── api_client/          # Cliente resiliente da API (retries 429/503, paginação)
-│   ├── data/                # Scripts de limpeza e junção de fontes
-│   ├── features/            # Pipeline de feature engineering
-│   ├── models/              # Treinamento, validação e inferência
-│   └── service/             # Código da API de exposição das previsões
-├── outputs/
-│   └── previsoes.json       # Contrato de saída final
-├── presentation/            # Material da apresentação
-├── tests
-├── requirements.txt / pyproject.toml
+│   ├── api_client/          # Cliente HTTP resiliente para a API de apoio (retries 429/503)
+│   ├── data_processing/     # Pipelines de limpeza, saneamento e deduplicação
+│   ├── features/            # Pipeline de Feature Engineering sem data leakage
+│   └── service/             # API FastAPI de serving das previsões em tempo real
+├── tests/                   # Suíte de testes automatizados (pytest)
+│   ├── test_contract.py     # Validação estrita do schema e tipos de previsoes.json
+│   └── test_service.py      # Testes de integração dos endpoints da API
+├── previsoes.json           # Contrato oficial de saída com as previsões da safra OOS 2025
+├── requirements.txt         # Dependências do projeto
 └── README.md
+```
 
+---
 
-testes:
-test_service.py / test_contract.py (Contrato de Saída e API de Serving)
-test_features.py / test_data.py (Engenharia de Dados e Features)
-test_api_client.py (Resiliência da Ingestão)
+## 🚀 Guia Rápido de Execução
+
+### 1. Configuração do Ambiente Virtual
+
+```bash
+# Criação do ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Instalação das dependências
+pip install -r requirements.txt
+```
+
+---
+
+### 2. Execução da API de Apoio (Dados Esportivos)
+
+Para subir o serviço interno de contexto de partidas e atletas:
+
+```bash
+python api_apoio/servidor.py
+```
+
+---
+
+### 3. Execução dos Notebooks de Modelagem
+
+Os notebooks estão organizados em sequência lógica e reprodutível:
+
+1. **`notebooks/01_obtencao_dados.ipynb`**: Diagnóstico exploratório, qualidade de dados e extração resiliente da API.
+2. **`notebooks/02_limpeza_e_preparacao.ipynb`**: Saneamento de dados, resolução de IDs e tratamento de inconsistências.
+3. **`notebooks/03_eda_e_feature_engineering.ipynb`**: Análise exploratória profunda e criação de 38 features pré-jogo (*sem data leakage*).
+4. **`notebooks/04_modelagem_e_validacao.ipynb`**: Validação temporal estrita (*Out-of-Time 2025*), benchmarks lineares e ensembles de árvores.
+5. **`notebooks/05_otimizacao_hiperparametros_e_explicabilidade.ipynb`**: Otimização Bayesiana (*Optuna*), análise SHAP e geração do `previsoes.json`.
+
+---
+
+### 4. Execução da API de Serving de Previsões (Entregável 3)
+
+Para subir o serviço que expõe as previsões no contrato oficial com filtros por rodada, atleta, clube e posição:
+
+```bash
+.venv/bin/uvicorn src.service.app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+* **Swagger UI (Documentação Interativa):** [http://localhost:8000/docs](http://localhost:8000/docs)
+* **Healthcheck:** [http://localhost:8000/health](http://localhost:8000/health)
+* **Consulta com filtros:** [http://localhost:8000/previsoes?rodada_id=1&posicao_id=1](http://localhost:8000/previsoes?rodada_id=1&posicao_id=1)
+
+*Consulte o guia detalhado em [`docs/execucao_servico.md`](file:///Users/actdigital/Documents/desafio-tecnico-gato-mestre-manual/docs/execucao_servico.md).*
+
+---
+
+### 5. Execução dos Testes Automatizados
+
+Para rodar a suíte completa de testes de contrato e integração da API:
+
+```bash
+.venv/bin/pytest tests/ -v
+```
