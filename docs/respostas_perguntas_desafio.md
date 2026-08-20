@@ -8,7 +8,7 @@
 
 ## Questão 1: Que inconsistências você encontrou na base? Para cada uma, qual foi o tratamento adotado e por quê?
 
-Durante o diagnóstico exploratório da base bruta (`base_case_gm.csv`, contendo 117.469 registros) e o cruzamento com os endpoints da API oficial de apoio, foram identificadas e tratadas **7 inconsistências estruturais**, adotando a API como fonte canônica da verdade (*Single Source of Truth*):
+Durante o diagnóstico exploratório da base bruta (`base_case_gm.csv`, contendo 117.469 registros) e o cruzamento com os endpoints da API oficial de apoio, foram identificadas e tratadas **8 inconsistências estruturais**, adotando a API como fonte canônica da verdade (*Single Source of Truth*):
 
 ### 1. Inconsistência de Cardinalidade em `posicao_id`
 * **Inconsistência Identificada:** Foram encontradas 466 linhas com valores espúrios de posição (`0`, `7` e `9`), em desacordo com as 6 posições regulamentares do Cartola FC (1 a 6), além de divergências de posição atribuídas ao mesmo atleta ao longo das temporadas.
@@ -49,12 +49,17 @@ Durante o diagnóstico exploratório da base bruta (`base_case_gm.csv`, contendo
 * **Tratamento Adotado (Tratamento 7):** Sincronização de `status_inicial` com as súmulas (`'titular'` e `'reserva'`), padronização de `status_pre` em categorias limpas (`'Provável'`, `'Dúvida'`, `'Contundido'`, `'Suspenso'`, `'Nulo'`) e `apelido` canônico em Title Case via API.
 * **Justificativa:** Evita a fragmentação de categorias em nós de árvores e melhora a qualidade dos dados em produção.
 
+### 8. Mudança Histórica nas Regras de Pontuação dos Scouts (Concept Drift no Target)
+* **Inconsistência Identificada:** As regras e pesos de pontuação dos scouts no Cartola FC variaram entre as temporadas de 2022 a 2025 (ex: pontuação de desarmes `DS`, defesas `DE`, faltas `FC`, etc.), gerando uma inconsistência de escala no target histórico original (`pontos_num`).
+* **Tratamento Adotado (Tratamento 8):** Auditoria reversa determinística das regras de scouts e recálculo homogeneizado da pontuação de todos os anos retroativamente com base nos pesos oficiais de 2025 (`pontos_target_2025`), além da atribuição determinística da média dos atletas de linha do clube para os técnicos (`posicao_id == 6`).
+* **Justificativa:** Elimina o viés de *Concept Drift* na variável alvo, garantindo que os modelos aprendam correlações sobre uma regra unificada e perfeitamente aderente à safra de avaliação.
+
 ---
 
 ## Questão 2: Como você dividiu os dados entre treino e validação? Justifique tecnicamente o critério escolhido.
 
 ### 1. Estrutura da Divisão Temporal (*Out-of-Time Validation*)
-A divisão foi estruturada de forma estritamente cronológica por temporadas inteiras, abrangendo **todos os 115.613 atletas cadastrados** (sem viés de sobrevivência ou filtros de exclusão):
+A divisão foi estruturada de forma estritamente cronológica por temporadas inteiras, abrangendo **todos os 115.613 atletas cadastrados**:
 
 ```
 ┌──────────────────────────────────────┬────────────────────────┬────────────────────────┐
@@ -70,34 +75,40 @@ A divisão foi estruturada de forma estritamente cronológica por temporadas int
 
 ### 2. Justificativa Técnica
 1. **Prevenção Rigorosa a *Lookahead Bias* (Vazamento Temporal):** Em dados esportivos e de mercado, o uso de *K-Fold Cross-Validation* aleatório é inadequado porque permite que dados do futuro treinem o modelo para prever o passado. Isso infla artificialmente métricas de acurácia que não se sustentam em produção.
-2. **Mimetização Fiel do Ciclo Produtivo:** No Cartola FC, o modelo precisa estimar o desempenho de rodadas futuras em temporadas com novos elencos, transferências internacionais, alterações táticas e trocas de técnicos. A validação *Out-of-Time* por ano garante que o modelo aprendeu padrões estruturais generalizáveis e não correlações espúrias intra-safra.
+2. **Mimetização Fiel do Ciclo Produtivo:** No Cartola FC, o modelo precisa estimar o desempenho de rodadas futuras em temporadas com novos elencos, transferências internacionais, alterações táticas e trocas de técnicos. A validação *Out-of-Time* por ano garante que o modelo aprendeu padrões estruturais generalizáveis.
 
 ---
 
 ## Questão 3: Quais colunas da base você utilizou como variáveis do modelo, e quais deixou de fora? Explique os dois lados da decisão.
 
-A base bruta e enriquecida totalizou 70 colunas. A seleção final utilizou **37 variáveis preditoras pré-jogo (`feature_cols_all`)**, guiada pela **Regra de Ouro da Modelagem Preditiva**: *Zero Data Leakage*.
+A base bruta e enriquecida totalizou 69 colunas. A seleção final utilizou **33 variáveis preditoras pré-jogo (`cols_to_predict`)**, estruturadas sob o princípio fundamental de **Zero Data Leakage** e agrupadas por relevância tática e esportiva.
 
-### 1. O Lado das Colunas Deixadas de Fora (Descarte e Isolamento)
+### 1. O Lado das Colunas Deixadas de Fora (Descarte, Isolamento e Colinearidade)
 
-* **Variável Alvo (*Target*):** `pontos_num` foi estritamente isolada como a variável de desfecho $y$.
-* **Identificadores e Metadados Textuais:** `atleta_id`, `match_id`, `ano`, `apelido`, `posicao_nome` foram excluídos da matriz de features preditoras (mantidos apenas como metadados para rastreabilidade e indexação).
-* **Variáveis Pós-Jogo Apuradas Durante/Após a Partida ($t$):**
-  * `minutos_jogados`, `entrou_em_campo`, `status_inicial` (da partida $t$).
-  * `variacao_num` (variação de patrimônio pós-rodada).
-  * **Todos os 19 scouts diretos da rodada $t$:** Gols (`G`), Assistências (`A`), Saldo de Gol (`SG`), Defesas (`DE`), Desarmes (`DS`), Faltas Sofridas (`FS`), Finalizações Fora (`FF`), Finalizações Defendidas (`FD`), Finalizações na Trave (`FT`), Cartões Amarelos (`CA`), Cartões Vermelhos (`CV`), Faltas Cometidas (`FC`), Gols Contra (`GC`), Gols Sofridos (`GS`), Impedimentos (`I`), Pênaltis Perdidos (`PP`), Pênaltis Cometidos (`PC`).
-  * *Justificativa:* Todos esses dados só são conhecidos após o término do jogo. Utilizá-los diretamente em $t$ configuraria vazamento de dados grave (*target leakage*), inviabilizando o uso do modelo antes do fechamento do mercado.
+* **Variável Alvo (*Target*):** `pontos_target_2025` (e o `pontos_num` bruto) foi estritamente isolada como a variável dependente de desfecho $y$.
+* **Identificadores e Metadados:** `atleta_id`, `match_id`, `ano`, `rodada_id`, `clube_id`, `opponent`, `apelido`, `posicao_nome` e `rodada_cbf_original` foram excluídos da matriz preditiva $X$ (mantidos apenas como metadados de indexação e rastreabilidade).
+* **Variáveis Pós-Jogo da Partida $t$ (Prevenção de *Target Leakage*):**
+  * `minutos_jogados` e `entrou_em_campo` da rodada $t$ (apurados somente após a realização do jogo).
+  * `preco_num`, `variacao_num`, `media_num` e `jogos_num` em sua versão original não defasada (pois refletem a consolidação pós-jogo da rodada $t$).
+  * **Todos os 19 scouts diretos da rodada $t$:** Gols (`G`), Assistências (`A`), Saldo de Gol (`SG`), Defesas (`DE`), Desarmes (`DS`), Faltas Sofridas (`FS`), Finalizações Fora (`FF`), Finalizações Defendidas (`FD`), Finalizações na Trave (`FT`), Pênaltis Defendidos (`DP`), Pênaltis Sofridos (`PS`), Pênaltis Perdidos (`PP`), Pênaltis Cometidos (`PC`), Cartões Amarelos (`CA`), Cartões Vermelhos (`CV`), Faltas Cometidas (`FC`), Gols Sofridos (`GS`), Gols Contra (`GC`) e Impedimentos (`I`).
+  * *Justificativa:* Utilizar scouts ou status reais da partida $t$ antes do fechamento do mercado constituiria vazamento grave, inviabilizando o modelo em ambiente produtivo.
+* **Eliminação de Redundâncias e Multicolinearidade:**
+  * `pontos_num_lag1`: Descartada para evitar colinearidade estrita com `feat_pontos_lag1` (que já inclui tratamento robusto de *Cold Start*).
+  * `taxa_presenca_ewma5`: Descartada para evitar redundância com `minutos_ewma5`, que já pondera a minutagem real contínua.
 
-### 2. O Lado das Colunas Utilizadas (Engenharia de Features Pré-Jogo)
+### 2. O Lado das Colunas Utilizadas (Matriz Preditiva Pré-Jogo de 33 Features)
 
-Para capturar o momento e a capacidade do atleta sem gerar vazamento, os dados históricos foram transformados em **features defasadas (*lagged*) e janelas móveis**:
+As variáveis selecionadas foram construídas para capturar a forma do atleta, força dos clubes e contexto tático, utilizando exclusivamente janelas defasadas:
 
-| Grupo de Features | Variáveis Criadas | Racional e Significado de Negócio |
+| Grupo Temático | Variáveis Utilizadas (`cols_to_predict`) | Racional e Significado de Negócio |
 | :--- | :--- | :--- |
-| **Forma Recente e Regularidade Defasada** | `pontos_lag1`, `participou_lag1`, `media_pontos_3j`, `desvio_pontos_3j`, `taxa_participacao_3j`, `minutos_medios_3j`, `media_scouts_volume_3j` | Capturam a fase recente, regularidade e frequência de atuação do atleta nas últimas 3 partidas. |
-| **Scouts Especializados Defasados** | `media_desarmes_3j`, `media_finalizacoes_3j`, `taxa_participacao_gols_5j`, `taxa_defesas_por_jogo_3j`, `taxa_conversao_gols_5j`, `score_risco_disciplinar_5j` | Isola o volume de ações decisivas e disciplinares por posição em janelas de 3 e 5 jogos. |
-| **Contexto de Confronto e Força Coletiva** | `diff_forca_confronto`, `fator_alavancagem_confronto`, `potencial_esperado_atleta`, `indice_favoritismo_mando`, `volume_esperado_partida`, `expectativa_gols_time`, `potencial_sg_defesa`, `home_dummy` | Modula a média do atleta contra a fragilidade defensiva do adversário e o favoritismo do mando de campo. |
-| **Dinâmica Econômica e Tática** | `preco_mercado_pre`, `momentum_preco_3j`, `roi_recente_3j`, `diff_preco_posicao_pre`, `score_risco_rotacao`, `estabilidade_11_titular_clube`, `status_pre`, `status_inicial`, `is_inicio_temporada`, `progresso_campeonato` | Incorpora o valor de mercado (precificação implícita do ecossistema), momento de valorização e risco de rotatividade tática. |
+| **Mercado e Contexto Básico (Defasados)** | `preco_num_lag1`, `variacao_num_lag1`, `media_num_lag1`, `jogos_num_lag1`, `status_pre`, `status_inicial`, `home_dummy`, `posicao_id`, `is_rodada_1` | Informações de mercado e situação pré-jogo conhecidas antes da rodada, defasadas em $t-1$ para evitar contaminação pós-jogo. |
+| **Força Coletiva e Vulnerabilidade Rival (L5)** | `clube_media_pts_feitos_l5`, `adv_media_pts_cedidos_l5` | Médias móveis dos últimos 5 jogos do volume de pontos produzidos pelo clube e cedidos pelo oponente, com *fallback* histórico anual. |
+| **Momento Individual com Cold Start** | `feat_pontos_lag1`, `feat_pontos_lag2`, `feat_media_pontos_3j`, `feat_media_pontos_5j`, `feat_std_pontos_5j` | Lags pontuais ($t-1, t-2$), médias móveis (3 e 5 jogos) e volatilidade individual, com imputação hierárquica histórica para estreantes (*Cold Start*). |
+| **Decomposição Tática de Scouts (EWMA 5)** | `piso_ewma5`, `teto_ewma5`, `chutes_ewma5`, `pts_piso_gol_ewma5`, `disciplina_ewma5` | Médias exponenciais (span=5) separando regularidade defensiva (Piso), explosão ofensiva (Teto), volume de finalizações e risco disciplinar. |
+| **Confiabilidade Física e Relatividade Posicional** | `minutos_ewma5`, `ratio_teto_piso`, `taxa_conversao_l5`, `piso_zscore_posicao` | Minutagem recente ponderada, relação teto/piso, eficiência na conversão de chutes em gols e normalização estatística ($Z$-score) do piso dentro da posição. |
+| **Especializações Setoriais (Meias e Volantes via EWMA 3)** | `taxa_criacao_armacao`, `perfil_volante_intensidade`, `armacao_ewma3`, `intensidade_ewma3`, `is_meia_armador` | Ratios normalizados por tempo de jogo para capturar o perfil de armação (assistências + faltas sofridas) e intensidade de marcação (desarmes + faltas cometidas). |
+| **Regimes de Temporada (Dummies)** | `regime_1turno`, `regime_2turno`, `regime_reta_final` | Codificação *one-hot* das fases do campeonato (Arranque como categoria base, Corpo 1º Turno, Corpo 2º Turno e Reta Final), capturando dinâmicas sazonais. |
 
 ---
 
@@ -105,39 +116,52 @@ Para capturar o momento e a capacidade do atleta sem gerar vazamento, os dados h
 
 ### 1. Métricas Utilizadas e Resultados na Safra de Teste Out-of-Sample (Safra 2025 - $N = 27.832$)
 
-Para avaliar tanto a **precisão numérica** quanto a **utilidade prática para escalação (ranqueamento)**, foram empregadas 5 métricas complementares:
+Para avaliar tanto a **precisão numérica** quanto a **utilidade prática para escalação (ranqueamento)**, foram empregadas métricas complementares de regressão e ordenação na safra de teste (2025):
 
-| Modelo | MAE (pts) | RMSE (pts) | $R^2$ (Var. Explicada) | Spearman $\rho$ (Ranking) | Kendall $\tau$ (Pares) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Baseline Heurístico (Média Histórica)** | $2.3160$ | $3.2798$ | $-0.0001$ | $0.2310$ | $0.1740$ |
-| **Regressão Linear (OLS)** | $1.7240$ | $2.4110$ | $0.1850$ | $0.4820$ | $0.3650$ |
-| **Random Forest** | $1.4420$ | $2.1480$ | $0.3280$ | $0.5870$ | $0.4510$ |
-| **CatBoost Regressor** | $1.4215$ | $2.1280$ | $0.3390$ | $0.5940$ | $0.4570$ |
-| 🏆 **LightGBM Tunado (Campeão)** | **$1.4103$** | **$2.1152$** | **$0.3451$** | **$0.6011$** | **$0.4633$** |
+| Família | Modelo | MAE (Geral) | RMSE | $R^2$ | Spearman $\rho$ | Pearson $r$ | MAE Top 20% | Redução MAE vs Baseline |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Heurística** | Baseline (`media_num_lag1`) | $2.2078$ | $3.2441$ | $-0.1402$ | $0.3738$ | $0.3521$ | $3.4169$ | $0.00\%$ |
+| **Linear Paramétrico** | Regressão Linear (OLS) | $1.5239$ | $2.5134$ | $0.3156$ | $0.5480$ | $0.5651$ | $3.2751$ | $30.98\%$ |
+| **Linear Paramétrico** | Ridge Regression ($L_2$) | $1.5241$ | $2.5132$ | $0.3157$ | $0.5480$ | $0.5651$ | $3.2749$ | $30.97\%$ |
+| **Árvores / Ensembles** | Random Forest | $1.4583$ | $2.4946$ | $0.3258$ | $0.5442$ | $0.5739$ | $3.3318$ | $33.95\%$ |
+| **Árvores / Ensembles** | CatBoost Regressor | $1.4624$ | $2.4787$ | $0.3344$ | $0.5540$ | $0.5798$ | $3.3168$ | $33.76\%$ |
+| **Árvores / Ensembles** | XGBoost Regressor | $1.4535$ | $2.4662$ | $0.3411$ | $0.5618$ | $0.5858$ | $3.2869$ | $34.16\%$ |
+| 🏆 **Árvores / Ensembles** | **LightGBM (Modelo Campeão)** | **$1.4541$** | **$2.4704$** | **$0.3388$** | **$0.5574$** | **$0.5842$** | **$3.2941$** | **$34.14\%$** |
 
 #### Justificativa das Métricas:
-* **MAE ($1.4103\text{ pts}$):** Mede o erro médio absoluto na mesma escala do jogo. Reduziu o erro do baseline em quase $1.0\text{ ponto}$ por atleta.
-* **RMSE ($2.1152\text{ pts}$):** Penaliza severamente erros em casos extremos (goleadas ou expulsões inesperadas).
-* **$R^2$ ($0.3451$):** Demonstra que o modelo explica mais de $34,5\%$ de toda a variância de pontuação em uma base completa com 27.832 atletas (incluindo reservas e nulos).
-* **Spearman $\rho$ ($0.6011$) e Kendall $\tau$ ($0.4633$):** Métricas centrais de negócio para fantasy game. Comprovam que a ordenação relativa dos atletas tem forte concordância com a realidade em campo.
+* **MAE ($1.4541\text{ pts}$):** Mede o erro médio absoluto na mesma escala de pontuação do jogo. Proporcionou uma redução de **mais de $34\%$ no erro** em relação à média simples do mercado.
+* **RMSE ($2.4704\text{ pts}$):** Penaliza desvios severos (goleadas atípicas ou expulsões não antecipadas).
+* **$R^2$ ($0.3388$):** O modelo captura cerca de $34\%$ de toda a variância da pontuação em uma base completa com 27.832 registros (incluindo atletas reservas e nulos).
+* **Spearman $\rho$ ($0.5574$) e Pearson $r$ ($0.5842$):** Comprovam forte concordância na ordenação relativa dos atletas, assegurando que o ranking de recomendações é altamente aderente ao desempenho real.
+* **MAE Top 20% ($3.2941\text{ pts}$):** Avalia a precisão especificamente no grupo dos atletas mais pontuadores da rodada (os mais visados para escalação).
 
 ---
 
-### 2. O resultado obtido justifica colocar a solução em uso?
+### 2. Por que o LightGBM foi selecionado como Modelo Campeão em vez do XGBoost?
+
+Embora o XGBoost tenha apresentado uma métrica numérica marginalmente superior ($MAE = 1.4535$ vs $1.4541$), a escolha do **LightGBM** como modelo produtivo definitivo fundamenta-se em uma decisão de **Engenharia de Software e Eficiência Operacional (Trade-off de MLOps)**:
+
+1. **Paridade Prática de Performance:** O delta de apenas $0.0006\text{ pontos}$ de MAE é estatisticamente nulo no contexto de um jogo de futebol (onde as pontuações variam em frações decimais muito maiores).
+2. **Velocidade de Treinamento e Inferência:** Graças à divisão de nós *Leaf-wise* orientada por histogramas (*GOSS* e *EFB*), o LightGBM executa o treinamento e a inferência em uma fração do tempo do XGBoost.
+3. **Consumo de Memória e Leveza de Artefato:** O modelo LightGBM serializado (`.joblib`) é substancialmente mais compacto e consome menos memória RAM, viabilizando tempos de resposta extremamente baixos no *serving* via API FastAPI (`src/service/app.py`).
+
+---
+
+### 3. O resultado obtido justifica colocar a solução em uso?
 
 **Sim, a solução sustenta o uso em produção, desde que acompanhada do desenho de produto adequado.**
 
 #### Racional de Sustentação de Negócio:
-1. **Superação Estrutural dos Indicadores Atuais:** A informação hoje disponível ao usuário no Cartola FC é puramente descritiva (`media_num`, preço e últimos jogos). O modelo campeão supera o baseline em todas as dimensões, ajustando a expectativa pelo mando de campo, força do adversário e momento tático.
-2. **Alta Capacidade de Ranqueamento ($\rho = 0.6011$):** Para o usuário que está escalando, o mais importante não é prever com precisão decimal se um atleta fará $5.8$ ou $6.2\text{ pts}$, mas sim saber **se o Atleta A tem maior expectativa de pontuação que o Atleta B** naquela rodada específica.
+1. **Superação Estrutural dos Indicadores Atuais:** A informação disponível no Cartola FC hoje baseia-se em médias simples descritivas (`media_num`, preço e últimos jogos). O modelo campeão supera o baseline em todas as dimensões, ajustando a expectativa pelo mando de campo, força defensiva do adversário e especialização tática.
+2. **Alta Capacidade de Ranqueamento ($\rho \approx 0.56$):** Para o usuário final que está montando o time, o diferencial é a capacidade de discernir **se o Atleta A tem maior expectativa de pontuação que o Atleta B** naquela rodada específica.
 
 #### Recomendações de Engenharia e Design de Produto:
-* **Exposição com Faixas de Potencial / Incerteza:** O futebol possui volatilidade intrínseca inerente a eventos estocásticos raros (pênaltis, expulsões aos 5 minutos, falhas individuais). Exibir uma previsão pontual determinística única (ex: *"Gabriel fará 6.04 pts"*) pode gerar falsa sensação de certeza e frustração no usuário. Recomenda-se apresentar a pontuação acompanhada de uma **faixa de potencial** (ex: *"Expectativa: 6.0 pts [Faixa provável: 3.5 a 8.5 pts]"*) ou de um **Score de Potencial Gato Mestre**.
+* **Exposição com Faixas de Potencial / Incerteza:** O futebol possui volatilidade intrínseca inerente a eventos estocásticos raros (pênaltis, expulsões precoces, falhas individuais). Exibir uma previsão pontual determinística única (ex: *"Gabriel fará 6.04 pts"*) pode gerar falsa sensação de exatidão. Recomenda-se apresentar a pontuação acompanhada de uma **faixa de potencial** (ex: *"Expectativa: 6.0 pts [Faixa provável: 3.5 a 8.5 pts]"*) ou de um **Score de Potencial Gato Mestre**.
 * **Evolução Arquitetural no Roadmap:** Para iterações futuras, recomenda-se explorar arquiteturas em dois estágios (*Two-Stage / Hurdle Model* com classificador de probabilidade de atuação $P(\text{joga})$ desacoplado do regressor de potencial condicional $E[Y \mid \text{joga}]$) e modelos de regressão quantílica para estimar diretamente os percentis $P_{10}$ e $P_{90}$.
 
 ---
 
-### 3. Estratégia de MLOps & Monitoramento Contínuo em Produção
+### 4. Estratégia de MLOps & Monitoramento Contínuo em Produção
 
 Para sustentar a confiabilidade do modelo ao longo das 38 rodadas do Brasileirão, propõe-se uma esteira de observabilidade pós-rodada focada na detecção dos três tipos de *drift*:
 

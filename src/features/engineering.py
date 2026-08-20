@@ -79,7 +79,6 @@ COLS_TO_PREDICT: List[str] = [
     'disciplina_ewma5',
     # Confiabilidade Física e Relatividade Posicional
     'minutos_ewma5',
-    'taxa_presenca_ewma5',
     'ratio_teto_piso',
     'taxa_conversao_l5',
     'piso_zscore_posicao',
