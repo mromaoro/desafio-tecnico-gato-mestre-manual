@@ -1,5 +1,15 @@
 """Pacote de Engenharia de Features do Desafio Técnico Gato Mestre."""
 
-from src.features.engineering import gerar_features
+from src.features.engineering import (
+    pipeline_gerar_features,
+    COLS_IDS,
+    COL_TARGET,
+    COLS_TO_PREDICT,
+)
 
-__all__ = ["gerar_features"]
+__all__ = [
+    "pipeline_gerar_features",
+    "COLS_IDS",
+    "COL_TARGET",
+    "COLS_TO_PREDICT",
+]

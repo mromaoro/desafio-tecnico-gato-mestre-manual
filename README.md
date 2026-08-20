@@ -4,6 +4,15 @@ Repositório da solução desenvolvida para a **Previsão de Pontuação de Atle
 
 ---
 
+## 📌 Acesso Rápido aos Entregáveis
+
+* 📄 **Respostas Oficiais do Desafio:** [`docs/respostas_perguntas_desafio.md`](docs/respostas_perguntas_desafio.md)
+* 📓 **Pipeline End-to-End Integrado:** [`notebooks/05_pipeline_end_to_end.ipynb`](notebooks/05_pipeline_end_to_end.ipynb)
+* 🚀 **Guia da API de Serving (FastAPI):** [`docs/execucao_servico.md`](docs/execucao_servico.md)
+* 💾 **Arquivo Oficial de Previsões (Safra 2025):** [`previsoes.json`](previsoes.json)
+
+---
+
 ## 📁 Estrutura do Repositório
 
 ```text
@@ -11,19 +20,20 @@ Repositório da solução desenvolvida para a **Previsão de Pontuação de Atle
 │   ├── raw/                 # Dados brutos da base_case_gm.csv e extrações da API de apoio
 │   └── processed/           # Tabelas limpas e feature store local (.parquet e .csv)
 ├── docs/
-│   └── execucao_servico.md  # Guia completo de execução e consumo da API de serving
+│   ├── respostas_perguntas_desafio.md  # Respostas técnicas oficiais às questões do edital
+│   └── execucao_servico.md            # Guia completo de execução e consumo da API de serving
 ├── models/                  # Modelos treinados (.joblib) e preprocessors
 ├── notebooks/               # Jornada metodológica e analítica completa
 │   ├── 01_obtencao_dados.ipynb
 │   ├── 02_limpeza_e_preparacao.ipynb
 │   ├── 03_eda_e_feature_engineering.ipynb
 │   ├── 04_modelagem_e_validacao.ipynb
-│   └── 05_otimizacao_hiperparametros_e_explicabilidade.ipynb
-├── presentation/            # Material de suporte para a apresentação técnica
+│   └── 05_pipeline_end_to_end.ipynb
 ├── src/
 │   ├── api_client/          # Cliente HTTP resiliente para a API de apoio (retries 429/503)
 │   ├── data_processing/     # Pipelines de limpeza, saneamento e deduplicação
 │   ├── features/            # Pipeline de Feature Engineering sem data leakage
+│   ├── models/              # Módulo de split temporal, treino (LightGBM/XGBoost) e inferência
 │   └── service/             # API FastAPI de serving das previsões em tempo real
 ├── tests/                   # Suíte de testes automatizados (pytest)
 │   ├── test_contract.py     # Validação estrita do schema e tipos de previsoes.json
@@ -68,7 +78,7 @@ Os notebooks estão organizados em sequência lógica e reprodutível:
 2. **`notebooks/02_limpeza_e_preparacao.ipynb`**: Saneamento de dados, resolução de IDs e tratamento de inconsistências.
 3. **`notebooks/03_eda_e_feature_engineering.ipynb`**: Análise exploratória profunda e criação de 38 features pré-jogo (*sem data leakage*).
 4. **`notebooks/04_modelagem_e_validacao.ipynb`**: Validação temporal estrita (*Out-of-Time 2025*), benchmarks lineares e ensembles de árvores.
-5. **`notebooks/05_otimizacao_hiperparametros_e_explicabilidade.ipynb`**: Otimização Bayesiana (*Optuna*), análise SHAP e geração do `previsoes.json`.
+5. **`notebooks/05_pipeline_end_to_end.ipynb`**: Execução do pipeline completo ponta a ponta (ingestão raw, limpeza, features, treino do LightGBM e geração do `previsoes.json`).
 
 ---
 
@@ -84,7 +94,7 @@ Para subir o serviço que expõe as previsões no contrato oficial com filtros p
 * **Healthcheck:** [http://localhost:8000/health](http://localhost:8000/health)
 * **Consulta com filtros:** [http://localhost:8000/previsoes?rodada_id=1&posicao_id=1](http://localhost:8000/previsoes?rodada_id=1&posicao_id=1)
 
-*Consulte o guia detalhado em [`docs/execucao_servico.md`](file:///Users/actdigital/Documents/desafio-tecnico-gato-mestre-manual/docs/execucao_servico.md).*
+*Consulte o guia detalhado em [`docs/execucao_servico.md`](docs/execucao_servico.md).*
 
 ---
 
